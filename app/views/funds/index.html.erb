@@ -1,0 +1,20 @@
+<h1>FUNDS</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+
+	<% @funds.each do |fund|%>
+	<tr>
+		<td><%= fund.name %></td>
+		<td><%= fund.description %></td>
+		<td><%= link_to 'Show', fund_path(fund) %></td>
+	</tr>
+
+	<% end %>
+
+
+
+	</table>
