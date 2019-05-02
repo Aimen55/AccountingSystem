@@ -1,18 +1,30 @@
-<h1>Accounts</h1>
+<div class="jumbotron jumbotron-fluid">
+<div class="container">
+    <h1>Accounts</h1>
+</div>
+</div>
 
-<table>
+<div class="container">
+<table class="table  table-dark table-striped table-bordered">
+   <thead class="thead-dark">
   <tr>
     <th>Name</th>
     <th>Description</th>
+   
   </tr>
+</thead>
   <% @accounts.each do |account|%>
     <tr>
       <td><%= account.name   %></td>
       <td><%= account.description   %></td>
       <td><% link_to 'show',account_path(account) %></td>
       <td><%= link_to 'Edit', edit_account_path(account) %></td>
+      <td><%= link_to 'Destroy', account_path(account),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
-  <% end %>
+     <% end %>
 </table>
 <br>
 <%= link_to "new Account", new_account_path %>
+</div>
