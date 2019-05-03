@@ -1,4 +1,5 @@
 class FundsController < ApplicationController
+	before_action :authenticate_user!
 	def index
 		@funds =Fund.all
 	end

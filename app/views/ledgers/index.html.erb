@@ -1,0 +1,30 @@
+<div class="jumbotron jumbotron-fluid">
+<div class="container">
+    <h1>General Ledgers</h1>
+</div>
+</div>
+
+<div class="container">
+<table class="table  table-dark table-striped table-bordered">
+   <thead class="thead-dark">
+  <tr>
+    <th>Value</th>
+    <th>Effective Date</th>
+   
+  </tr>
+</thead>
+  <% @ledgers.each do |ledger|%>
+    <tr>
+      <td><%= ledger.value   %></td>
+      <td><%= ledger.effectivedate  %></td>
+      <td><% link_to 'show',ledger_path(ledger) %></td>
+      <td><%= link_to 'Edit', edit_ledger_path(ledger) %></td>
+      <td><%= link_to 'Destroy', ledger_path(ledger),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+     <% end %>
+</table>
+<br>
+<%= link_to "new Ledger", new_ledger_path %>
+</div>

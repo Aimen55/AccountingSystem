@@ -1,2 +1,0 @@
-class GeneralLedgersController < ApplicationController
-end

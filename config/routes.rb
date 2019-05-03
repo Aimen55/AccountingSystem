@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 root 'welcome#index'
 resources :funds
 resources :accounts 
-
+resources :ledgers
 # get '/users/new' =>  'users#new'
-post '/users/create' => 'users#create' 
+post '/users/create' => 'users#create'
+#post '/ledger/new' => 'ledgers#create'
 end
