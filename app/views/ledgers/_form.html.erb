@@ -3,7 +3,7 @@
   <div id="error_explanation">
     <h2>
       <%= pluralize(@ledger.errors.count, "error") %> prohibited
-      this general_ledger from being saved:
+      this ledger from being saved:
     </h2>
     <ul>
       <% @ledger.errors.full_messages.each do |msg| %>
@@ -12,35 +12,27 @@
     </ul>
   </div>
 <% end %>
+
 <%= form_with model: @ledger, local: true do |form| %>
 <%#= form_for @ledger, as: :post, url: ledger_path(@ledger) do |form| %>
   <p>
     <%= form.label :value %><br>
-    <%= form.text_field :value %>
-  </p>
-
+    <%= form.number_field :value %>
+  </p><br>
   <p>
-    <%= form.label :effectivedate %><br>
-    <%= form.text_area :effectivedate %>
-  </p>
-
-<div>
-<button type="submit" class="btn btn-secondary">
+    <%= form.label :effective_date %><br>
+    <%= form.date_field :effective_date %>
+  </p><br>
   <p>
-    <%= form.collection_select(:account_id, Account.all, :id, :name ) %>
-  </p>
+    <%= form.collection_select :account_id, Account.all,:id,:name, include_blank: true %>
+  </p><br>
   <p>
-    <%= form.collection_select(:fund_id, Fund.all, :id, :name ) %>
-  </p>
-</button>
-</div>
-<div>
-<button type="submit" class="btn btn-dark">
+    <%= form.collection_select :fund_id, Fund.all,:id,:name, include_blank: true %>
+  </p><br>
   <p>
     <%= form.submit %>
   </p>
-</button>
-</div>
+  <!-- <button type="submit" class="btn btn-secondary"></button> -->
 <% end %>
 </div>
   

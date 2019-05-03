@@ -1,4 +1,4 @@
 class Fund < ApplicationRecord
 	belongs_to :user
-	has_one :general_ledger
+	has_one :ledger
 end

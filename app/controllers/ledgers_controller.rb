@@ -1,19 +1,19 @@
-class GeneralLedgersController < ApplicationController
+class LedgersController < ApplicationController
 	before_action :authenticate_user!
 	def index
-    @ledgers =GeneralLedger.all
+    @ledgers =Ledger.all
   end
 
   def show
-    @ledger =GeneralLedger.find(params[:id])
+    @ledger =Ledger.find(params[:id])
   end
 
   def new
-    @ledger =GeneralLedger.new
+    @ledger =Ledger.new
   end
 
   def create
-    @ledger =GeneralLedger.create(ledger_params)
+    @ledger =Ledger.create(ledger_params)
     if @ledger.save
       redirect_to @ledger
     else
@@ -22,11 +22,11 @@ class GeneralLedgersController < ApplicationController
   end
 
   def edit
-    @ledger =GeneralLedger.find(params[:id])
+    @ledger =Ledger.find(params[:id])
   end
   
   def update
-    @ledger = GeneralLedger.find(params[:id])
+    @ledger = Ledger.find(params[:id])
     
     if @ledger.update(ledger_params)
       redirect_to @ledger
@@ -36,7 +36,7 @@ class GeneralLedgersController < ApplicationController
   end
 
   def destroy
-    @ledger = GeneralLedger.find(params[:id])
+    @ledger = Ledger.find(params[:id])
     @ledger.destroy
  
     redirect_to @ledger
@@ -46,6 +46,6 @@ class GeneralLedgersController < ApplicationController
 
   private
     def ledger_params
-      params.require(:ledger).permit(:value, :effectivedate, :account_id, :fund_id)
+      params.require(:ledger).permit(:value, :effective_date, :account_id, :fund_id)
     end
 end

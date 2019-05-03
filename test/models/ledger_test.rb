@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GeneralLedgerTest < ActiveSupport::TestCase
+class LedgerTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

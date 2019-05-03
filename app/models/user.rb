@@ -14,6 +14,6 @@ class User < ApplicationRecord
     #validates_length_of :password, :in => 6..20, :on => :create
 	has_many :accounts
 	has_one :fund
-	has_one :general_ledger ,through: :fund
+	has_one :ledger ,through: :fund
 
 end

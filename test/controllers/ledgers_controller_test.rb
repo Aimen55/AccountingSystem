@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GeneralLedgersControllerTest < ActionDispatch::IntegrationTest
+class LedgersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

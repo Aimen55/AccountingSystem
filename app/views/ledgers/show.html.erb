@@ -1,11 +1,16 @@
+<h1>Ledger Detail</h1>
 <div class ="container-fluid">
 <p>
-	<strong>value</strong>
-	<%= @ledger.value %>
+  <strong>value</strong>
+  <%= @ledger.value %>
 </p>
 
 <p>
-	<strong>Effective DAte</strong>
-	<%= @ledger.effectivedate %>
+  <strong>Effective DAte</strong>
+  <%= @ledger.effective_date %>
+</p>
+
+<p>
+  <%= link_to 'Back', ledgers_path %>
 </p>
 </div>

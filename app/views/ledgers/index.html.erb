@@ -10,14 +10,14 @@
   <tr>
     <th>Value</th>
     <th>Effective Date</th>
-   
+    <th colspan="3">Actions</th>
   </tr>
 </thead>
   <% @ledgers.each do |ledger|%>
     <tr>
       <td><%= ledger.value   %></td>
-      <td><%= ledger.effectivedate  %></td>
-      <td><% link_to 'show',ledger_path(ledger) %></td>
+      <td><%= ledger.effective_date  %></td>
+      <td><%= link_to 'show',ledger_path(ledger) %></td>
       <td><%= link_to 'Edit', edit_ledger_path(ledger) %></td>
       <td><%= link_to 'Destroy', ledger_path(ledger),
               method: :delete,

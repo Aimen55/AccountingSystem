@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_125608) do
+ActiveRecord::Schema.define(version: 2019_05_03_131919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,15 +41,13 @@ ActiveRecord::Schema.define(version: 2019_05_02_125608) do
     t.index ["user_id"], name: "index_funds_on_user_id"
   end
 
-  create_table "general_ledgers", force: :cascade do |t|
+  create_table "ledgers", force: :cascade do |t|
     t.float "value"
-    t.date "effectivedate"
+    t.datetime "effective_date"
+    t.integer "fund_id"
+    t.integer "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "fund_id"
-    t.bigint "account_id"
-    t.index ["account_id"], name: "index_general_ledgers_on_account_id"
-    t.index ["fund_id"], name: "index_general_ledgers_on_fund_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,6 +69,6 @@ ActiveRecord::Schema.define(version: 2019_05_02_125608) do
   add_foreign_key "accounts", "account_types"
   add_foreign_key "accounts", "users"
   add_foreign_key "funds", "users"
-  add_foreign_key "general_ledgers", "accounts"
-  add_foreign_key "general_ledgers", "funds"
+  add_foreign_key "ledgers", "accounts"
+  add_foreign_key "ledgers", "funds"
 end
