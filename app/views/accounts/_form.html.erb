@@ -24,6 +24,13 @@
     <%= form.text_area :description %>
   </p>
   <br>
+
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture %>
+  </div>
+  <br>
+  
   <div class="field">
     <%= form.label :account_type_id, "Select Account Type" %><br />
  

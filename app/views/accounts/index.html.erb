@@ -28,6 +28,14 @@
           <tr>
             <td><%= account.name   %></td>
             <td><%= account.description   %></td>
+            <!-- <td>< #%= image_tag url_for(account.picture) rescue '' %></td> -->
+            <td><% if account.picture.attached? %>
+                  <%= image_tag url_for(account.picture)  %>
+                <% else %>
+                  <div class="text-align-center img-place-holder">
+                       No Image Added Please add One
+                  </div>
+                <% end %><td>
             <td><%= link_to 'show',account_path(account) %></td>
             <td><%= link_to 'Edit', edit_account_path(account) %></td>
             <td><%= link_to 'Destroy', account_path(account),
