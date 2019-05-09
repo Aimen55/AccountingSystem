@@ -1,22 +1,45 @@
 <div class="jumbotron jumbotron-fluid">
-<div class="container">
+<div class="container text-center">
     <h1>General Ledgers</h1>
 </div>
 </div>
 
+
+
+
+
 <div class="container">
-<table class="table  table-dark table-striped table-bordered">
-   <thead class="thead-dark">
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <p class="navbar-text pull-right">
+      <%= link_to "New Ledger", new_ledger_path %>
+    </p>
+  </div>
+  </nav>
+<div class="col-md-12">
+    <table id="ledgers_table" class="table table-striped table-bordered" style="width:100%">
+ <thead>
   <tr>
     <th>Value</th>
     <th>Effective Date</th>
-    <th colspan="3">Actions</th>
+    <th>Fund Name</th>
+    <th>Account Name</th>
+    <th>Account Type</th>
+    <th ></th>
+    <th></th>
+    <th></th>
   </tr>
 </thead>
+
+<tbody>
   <% @ledgers.each do |ledger|%>
     <tr>
       <td><%= ledger.value   %></td>
-      <td><%= ledger.effective_date  %></td>
+      <td><%= format_datetime(ledger.effective_date)  %></td>
+      <td><%= ledger.fund.name  %></td>
+      <td><%= ledger.account.name  %></td>
+      <td><%= ledger.account.name  %></td>
+      <!-- <td><%#= ledger.account.account_type.name  %></td> -->
       <td><%= link_to 'show',ledger_path(ledger) %></td>
       <td><%= link_to 'Edit', edit_ledger_path(ledger) %></td>
       <td><%= link_to 'Destroy', ledger_path(ledger),
@@ -24,7 +47,17 @@
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
      <% end %>
+</tbody>
 </table>
-<br>
-<%= link_to "new Ledger", new_ledger_path %>
 </div>
+
+<br>
+
+
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#ledgers_table').DataTable();
+  } );
+</script>

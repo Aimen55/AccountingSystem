@@ -23,12 +23,22 @@
     <%= form.label :effective_date %><br>
     <%= form.date_field :effective_date %>
   </p><br>
-  <p>
+  <!-- <p> -->
+    <%#= form.collection_select :account_id, Account.all,:id,:name, include_blank: true %>
+  <!-- </p><br> -->
+  <!-- <p> -->
+    <%#= form.collection_select :fund_id, Fund.all,:id,:name, include_blank: true %>
+  <!-- </p><br> -->
+  <div class="field">
+    <%= form.label :account_id, "Select Account" %><br />
     <%= form.collection_select :account_id, Account.all,:id,:name, include_blank: true %>
-  </p><br>
-  <p>
+  </div>
+  <br>
+   <div class="field">
+    <%= form.label :fund_id, "Select Fund" %><br />
     <%= form.collection_select :fund_id, Fund.all,:id,:name, include_blank: true %>
-  </p><br>
+  </div>
+  <br>
   <p>
     <%= form.submit %>
   </p>

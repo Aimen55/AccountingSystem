@@ -1,13 +1,13 @@
 class AccountsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :set_account, only: [:show, :edit, :update]
 
   def index
     @accounts =Account.all
   end
 
   def show
-    @account =Account.find(params[:id])
   end
 
   def new
@@ -17,18 +17,16 @@ class AccountsController < ApplicationController
   def create
     @account =Account.new(account_params)
     if @account.save
-      redirect_to @account
+      redirect_to accounts_path
     else
       render 'new'
     end
   end
 
   def edit
-    @account =Account.find(params[:id])
   end
   
   def update
-    @account = Account.find(params[:id])
     
     if @account.update(account_params)
       redirect_to @account
@@ -46,6 +44,10 @@ class AccountsController < ApplicationController
 
 
   def account_params
-    params.require(:account).permit(:name, :description)
+    params.require(:account).permit(:name, :description, :account_type_id)
+  end
+
+  def set_account
+    @account =Account.find(params[:id])
   end
 end

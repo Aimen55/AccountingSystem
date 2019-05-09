@@ -18,25 +18,24 @@
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </p>
- 
+  <br>
   <p>
     <%= form.label :description %><br>
     <%= form.text_area :description %>
   </p>
-<div>
-<button type="submit" class="btn btn-secondary">
-  <p>
-    <%= form.collection_select(:account_type_id, AccountType.all, :id, :name ) %>
-  </p>
-</button>
-</div>
-<div>
-<button type="submit" class="btn btn-dark">
+  <br>
+  <div class="field">
+    <%= form.label :account_type_id, "Select Account Type" %><br />
+ 
+    <%= form.collection_select :account_type_id, AccountType.all,:id,:name, include_blank: true %>
+  </div>
+  <br>
+ 
   <p>
     <%= form.submit %>
   </p>
-</button>
-</div>
+
+
 <% end %>
 </div>
   

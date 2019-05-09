@@ -1,30 +1,50 @@
 <div class="jumbotron jumbotron-fluid">
-<div class="container">
+<div class="container text-center">
     <h1>Accounts</h1>
 </div>
 </div>
 
 <div class="container">
-<table class="table  table-dark table-striped table-bordered">
-   <thead class="thead-dark">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-   
-  </tr>
-</thead>
-  <% @accounts.each do |account|%>
-    <tr>
-      <td><%= account.name   %></td>
-      <td><%= account.description   %></td>
-      <td><% link_to 'show',account_path(account) %></td>
-      <td><%= link_to 'Edit', edit_account_path(account) %></td>
-      <td><%= link_to 'Destroy', account_path(account),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-     <% end %>
-</table>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <p class="navbar-text pull-right">
+     <%= link_to "new Account", new_account_path %>
+    </p>
+  </div>
+  </nav>
+  <div class="col-md-12">
+    <table id="accounts_table" class="table table-striped table-bordered" style="width:100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th ></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @accounts.each do |account|%>
+          <tr>
+            <td><%= account.name   %></td>
+            <td><%= account.description   %></td>
+            <td><%= link_to 'show',account_path(account) %></td>
+            <td><%= link_to 'Edit', edit_account_path(account) %></td>
+            <td><%= link_to 'Destroy', account_path(account),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+           <% end %>   
+      </tbody>
+    </table>
+  </div>
+
 <br>
-<%= link_to "new Account", new_account_path %>
+
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#accounts_table').DataTable();
+  } );
+</script>
