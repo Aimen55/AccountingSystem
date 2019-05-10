@@ -18,6 +18,7 @@
         <tr>
           <th>Name</th>
           <th>Description</th>
+          <th>Picture</th>
           <th ></th>
           <th></th>
           <th></th>
@@ -29,13 +30,14 @@
             <td><%= account.name   %></td>
             <td><%= account.description   %></td>
             <!-- <td>< #%= image_tag url_for(account.picture) rescue '' %></td> -->
-            <td><% if account.picture.attached? %>
-                  <%= image_tag url_for(account.picture)  %>
-                <% else %>
-                  <div class="text-align-center img-place-holder">
-                       No Image Added Please add One
-                  </div>
-                <% end %><td>
+            <!-- <td><%# if account.picture.attached? %> -->
+                  <%#= image_tag url_for(account.picture)  %>
+                <%#else %>
+                  <!-- <div class="text-align-center img-place-holder"> -->
+                       <!-- self.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.jpeg")), filename: 'default.jpg' , content_type: "image/jpg") -->
+                  <!-- </div> -->
+                <!-- <%# end %></td> -->
+            <td><%= image_tag(account.picture , class: 'card-img-top img-fluid') rescue '' %></td>
             <td><%= link_to 'show',account_path(account) %></td>
             <td><%= link_to 'Edit', edit_account_path(account) %></td>
             <td><%= link_to 'Destroy', account_path(account),
