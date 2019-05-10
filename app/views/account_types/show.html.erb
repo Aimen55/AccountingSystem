@@ -1,0 +1,22 @@
+<div class ="container-fluid">
+<h2>Account Type</h2>
+<p>
+	<strong>Name:</strong>
+	<%= @account_type.name %>
+</p>
+<h3>Accounts</h3>
+<p>
+	<% @account_type.accounts.each do |display|%>
+	<strong>Name for account:</strong>
+	<%= display.name %>
+
+	<br>
+
+	<strong>Description for account:</strong>
+	<%= display.description %>
+	<% end %>
+</p>
+
+
+
+</div>

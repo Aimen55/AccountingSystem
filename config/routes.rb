@@ -14,6 +14,7 @@ root 'welcome#index'
 resources :funds
 resources :accounts 
 resources :ledgers
+resources :account_types
 # get '/users/new' =>  'users#new'
 post '/users/create' => 'users#create'
 #post '/ledger/new' => 'ledgers#create'

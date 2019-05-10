@@ -9,7 +9,7 @@ class AccountsController < ApplicationController
   
 
   def index
-    @accounts =Account.all
+    @accounts =Account.all.page(params[:page]).per(5)
   end
 
   def show

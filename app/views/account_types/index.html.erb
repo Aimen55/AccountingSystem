@@ -1,15 +1,12 @@
 <div class="jumbotron jumbotron-fluid">
 <div class="container text-center">
-    <h1>Accounts</h1>
+    <h1>Account Types</h1>
 </div>
 </div>
 
 
 
 
-<div class="container">
-    <%= paginate @accounts %>
-</div>
 
 
 
@@ -18,7 +15,7 @@
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <p class="navbar-text pull-right">
-     <%= link_to "new Account", new_account_path %>
+     <%= link_to "new Account Type", new_account_type_path %>
     </p>
   </div>
   </nav>
@@ -27,18 +24,15 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Description</th>
-          <th>Picture</th>
           <th ></th>
           <th></th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <% @accounts.each do |account|%>
+        <% @account_types.each do |account_type|%>
           <tr>
-            <td><%= account.name   %></td>
-            <td><%= account.description   %></td>
+            <td><%= account_type.name %></td>
             <!-- <td>< #%= image_tag url_for(account.picture) rescue '' %></td> -->
             <!-- <td><%# if account.picture.attached? %> -->
                   <%#= image_tag url_for(account.picture)  %>
@@ -47,10 +41,9 @@
                        <!-- self.picture.attach(io: File.open(Rails.root.join("app", "assets", "images", "default.jpeg")), filename: 'default.jpg' , content_type: "image/jpg") -->
                   <!-- </div> -->
                 <!-- <%# end %></td> -->
-            <td><%= image_tag(account.picture , class: 'card-img-top img-fluid', :size => "100x100") rescue '' %></td>
-            <td><%= link_to 'show',account_path(account) %></td>
-            <td><%= link_to 'Edit', edit_account_path(account) %></td>
-            <td><%= link_to 'Destroy', account_path(account),
+            <td><%= link_to 'show',account_type_path(account_type) %></td>
+            <td><%= link_to 'Edit', edit_account_type_path(account_type) %></td>
+            <td><%= link_to 'Destroy', account_type_path(account_type),
                     method: :delete,
                     data: { confirm: 'Are you sure?' } %></td>
           </tr>
